@@ -1,0 +1,183 @@
+<div class="container">
+    <!-- <div class="text-right">
+        <button type="submit" class="btn btn-primary" (click)="onNew()">
+          New Event
+        </button>
+      </div> -->
+      <br>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+
+          <th>Name</th>
+
+          <th>Date</th>
+
+          <th>Time</th>
+
+          <th>Address</th>
+
+          <th>City</th>
+
+          <th>Country</th>
+
+          <!-- <th></th>
+
+          <th></th> -->
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let registration of registrations; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+
+
+          <td>{{ registration.name }}</td>
+
+          <td>
+            {{
+              registration.date.day +
+                "/" +
+                registration.date.month +
+                "/" +
+                registration.date.year
+            }}
+          </td>
+
+          <td>
+            {{
+              registration.time
+            }}
+          </td>
+
+          <td>{{ registration.address }}</td>
+
+          <td>{{ registration.city }}</td>
+          <td>{{ registration.country }}</td>
+
+          <!-- <td>
+            <button type="button" class="btn btn-info" (click)="onEdit(i)">
+              Edit
+            </button>
+          </td>
+
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(i)">
+              Delete
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">
+        New
+      </button>
+    </div> -->
+  </div>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="name-input" class="col-2 col-form-label"
+          >Name</label
+        >
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.name"
+            name="name"
+          />
+        </div>
+      </div>
+
+     
+
+      <div class="form-group row">
+        <label for="dob-input" class="col-2 col-form-label">Date</label>
+
+        <div class="col-3 input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="date"
+            [(ngModel)]="regModel.date"
+            ngbDatepicker
+            #date="ngbDatepicker"
+          />
+
+          <button
+            class="input-group-addon"
+            
+            type="button"
+          >
+            <img
+              src="assets/img/calendar-icon.svg"
+              style="width: 1.2rem; height: 1rem; cursor: pointer;"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-address-input" class="col-2 col-form-label">Time</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.time"
+            name="time"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-address-input" class="col-2 col-form-label">Address</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="address"
+            [(ngModel)]="regModel.address"
+            name="address"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-city-input" class="col-2 col-form-label">City</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.city"
+            name="city"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-country-input" class="col-2 col-form-label">Country</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.country"
+            name="country"/>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Create</button>
+
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+
+  <br />
+</div>
